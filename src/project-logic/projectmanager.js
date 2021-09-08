@@ -16,12 +16,8 @@ const projectManager = (()=>{
         projects.splice(index, 1);
         return removedProject;
     }
-    const deleteProjectbyProject = (project) => {
-        let index = projects.indexOf(project);
-        if (index === -1) return null; // Task not found in array
-        projects.splice(index, 1);
-
-        return project;
+    const deleteProjectbyID = (id) => {
+        return projects.filter(project => id !== project.id);
     }
     const getProjects = () => {
         return projects;
@@ -37,7 +33,7 @@ const projectManager = (()=>{
     return {
         addProject,
         deleteProjectByIndex,
-        deleteProjectbyProject,
+        deleteProjectbyID,
         findProjectByID,
         getProjects,
         findProjectByName

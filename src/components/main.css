@@ -102,17 +102,19 @@ input[type=checkbox] {
 }
 .fadeIn-exit {
     opacity: 1;
+    display: block;
 }
 
 .fadeIn-exit-active {
     opacity: 0;
     transition: opacity 300ms;
+    display: block;
 }
 
 .add-task-window {
     width: 700px;
     height: 500px;
-    background-color: var(--magic-mint);
+    background-color: var(--celadon);
 
 	position: absolute;
 	top:0;
@@ -122,7 +124,7 @@ input[type=checkbox] {
   	
 	margin: auto;
 }
-input[type='text'] {
+input[type='text'], input[type='date'], input[type='number'] {
     display: block;
     margin: 20px;
 }
@@ -130,21 +132,51 @@ input[type='text'] {
     display: flex;
     flex-direction: column;
     min-width: 350px;
+    position: relative;
+}
+.add-task-field .Active {
+    transform: translate(4px, 24px) scale(0.75);
 }
 .add-task-field input {
-    width: 80%;
+    width: auto;
     height: 56px;
     padding: 14px 16px 0 10px;
     outline: 0;
     border: 1px solid #ddd;
     border-radius: 4px;
-    background: rgba(0,0,0,0);
+    background: var(--magic-mint);
     font-family: "Manrope Regular";
     font-size: 16px;
 }
 .add-task-field label {
     font-size: 16px;
     font-family: "Manrope Regular";
-    padding: 0 12px;
+    padding: 0 32px;
     color: #000;
+    pointer-events: none;
+    position: absolute;
+    transform: translate(0, 50px) scale(1);
+    transform-origin: top left;
+    transition: all 0.2s ease-out;
+    z-index: 3;
 }
+
+.add-task-field:focus-within label {
+    transform: translate(4px, 24px) scale(0.75);
+}
+
+.fa-trash-alt {
+    cursor: pointer;
+}
+.date-field, .half-field {
+    width: 50%;
+}
+.add-task-field label.static {
+    transform: translate(4px, 24px) scale(0.75) !important;
+}
+.add-task-option-button {
+    text-align: center;
+    margin: 5px 10px;
+}
+
+

@@ -26,7 +26,8 @@ const taskFactory = (title, description, dueDate, priority) => {
         priority,
         complete,
         uncomplete,
-        getID};
+        getID,
+        id};
 };
 
 export default taskFactory;

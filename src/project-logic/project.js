@@ -14,7 +14,7 @@ const projectFactory = (name) => {
         return removedTask;
     }
     const removeTaskByID = (id) => {
-        return tasks.find(task => task.getID() === id);
+        tasks = tasks.filter(task => task.getID() !== id);
     }
     const sortByPriority = ()=>{
         tasks.sort((taskA, taskB)=>taskA.priority-taskB.priority);
@@ -24,6 +24,9 @@ const projectFactory = (name) => {
     }
     const getTasks = () => {
         return tasks;
+    }
+    const setTasks = (newTasks) => {
+        tasks = newTasks;
     }
     const getID = () => {
         return id;
@@ -37,6 +40,7 @@ const projectFactory = (name) => {
         sortByPriority,
         clearTasks,
         getTasks,
+        setTasks,
         getID
     }
 }
