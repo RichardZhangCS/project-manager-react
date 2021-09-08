@@ -1,0 +1,15 @@
+header {
+    background-color: var(--steel-teal);
+    display: flex;
+    padding: 5px;
+    color: white;
+    align-items: center;
+}
+h1 {
+    margin-left: 16px;
+    font-family: "Manrope Regular";
+}
+.logo {
+    width: auto;
+    height: 75px;
+}

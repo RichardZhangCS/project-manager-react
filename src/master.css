@@ -1,0 +1,38 @@
+:root {
+    --magic-mint: #b5ffe1;
+    --celadon: #93e5ab;
+    --ocean-green: #65b891;
+    --steel-teal: #4e878c;
+    --dark-green: #00241b;
+}
+
+@font-face {
+    font-family: "Manrope Regular";
+    src: url('./manrope-regular.woff2') format('woff2'),
+         url('./manrope-regular.woff') format('woff');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #effbf7;
+}
+
+button {
+    font-family: "Manrope Regular";
+    display: block;
+    margin: 2px 8px;
+    height: 3em;
+    width: 250px;
+    border: 0;
+    cursor: pointer;
+    background-color: transparent;
+    text-align: left;
+    font-size: 1em;
+    padding-left: 16px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: rgb(150, 204, 182);
+}

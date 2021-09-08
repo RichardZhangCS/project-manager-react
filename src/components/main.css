@@ -1,0 +1,150 @@
+main {
+    display: flex;
+    height: auto;
+    min-height: calc(100vh - 107px)
+}
+
+nav {
+    background-color: var(--magic-mint);
+    height:auto;
+    padding: 16px;
+}
+
+h2 {
+    margin: 16px 16px;
+}
+
+div.task-preview {
+    padding: 16px;
+    background-color: #effbf7;
+    width:1000px;
+    margin: 0 auto;
+}
+
+.project-title {
+    font-size: 2em;
+}
+
+input[type=checkbox] {
+    width: 25px;
+    height: 25px;
+    margin-right: 8px;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+}
+
+.task-item:hover {
+    background-color: #c4e9dc;
+}
+
+.task-item p {
+    margin: 8px 5px;
+}
+
+.preview-button-options {
+    display: flex;
+    justify-content: space-around;
+}
+
+.task-date {
+    margin-right: 16px !important;
+}
+
+.task-item-right-box {
+    margin-left: auto !important;
+    justify-content: flex-end;
+    display:flex;
+    align-items: center;
+}
+
+.task-item .task-item-right-box i {
+    visibility: hidden;
+    cursor: pointer;
+}
+
+.task-item:hover .task-item-right-box i {
+    visibility: visible;
+    cursor: pointer;
+}
+
+.overlay {
+    position: fixed; /* Sit on top of the page content */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    opacity: 0;
+    display: none;
+
+    /* Opera */
+}
+.fadeIn-enter {
+    opacity: 0;
+    display: block;
+}
+
+.fadeIn-enter-active {
+    opacity: 1;
+    transition: opacity 300ms;
+    display: block;
+}
+
+.fadeIn-enter-done {
+    opacity: 1;
+    display: block;
+}
+.fadeIn-exit {
+    opacity: 1;
+}
+
+.fadeIn-exit-active {
+    opacity: 0;
+    transition: opacity 300ms;
+}
+
+.add-task-window {
+    width: 700px;
+    height: 500px;
+    background-color: var(--magic-mint);
+
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+  	
+	margin: auto;
+}
+input[type='text'] {
+    display: block;
+    margin: 20px;
+}
+.add-task-field {
+    display: flex;
+    flex-direction: column;
+    min-width: 350px;
+}
+.add-task-field input {
+    width: 80%;
+    height: 56px;
+    padding: 14px 16px 0 10px;
+    outline: 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: rgba(0,0,0,0);
+    font-family: "Manrope Regular";
+    font-size: 16px;
+}
+.add-task-field label {
+    font-size: 16px;
+    font-family: "Manrope Regular";
+    padding: 0 12px;
+    color: #000;
+}
