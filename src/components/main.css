@@ -144,7 +144,7 @@ input[type='text'], input[type='date'], input[type='number'] {
     outline: 0;
     border: 1px solid #ddd;
     border-radius: 4px;
-    background: var(--magic-mint);
+    background-color: #e7fbf3;
     font-family: "Manrope Regular";
     font-size: 16px;
 }
@@ -177,6 +177,7 @@ input[type='text'], input[type='date'], input[type='number'] {
 .add-task-option-button {
     text-align: center;
     margin: 5px 10px;
+    transform: scale(1.25);
 }
 
 

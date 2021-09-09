@@ -28,8 +28,14 @@ const projectFactory = (name) => {
     const setTasks = (newTasks) => {
         tasks = newTasks;
     }
+    const findTaskByID = (id) => {
+        return tasks.find(task => task.getID() === id);
+    }
     const getID = () => {
         return id;
+    }
+    const clearCompletedTasks = () => {
+        tasks = tasks.filter(task => !task.isComplete());
     }
 
     return {
@@ -38,10 +44,12 @@ const projectFactory = (name) => {
         removeTaskByIndex,
         removeTaskByID,
         sortByPriority,
+        findTaskByID,
         clearTasks,
         getTasks,
         setTasks,
-        getID
+        getID,
+        clearCompletedTasks
     }
 }
 export default projectFactory;

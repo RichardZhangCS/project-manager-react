@@ -19,6 +19,22 @@ function Main() {
         newSelectedProject.removeTaskByID(id);
         setSelectedProject(newSelectedProject);
     }
+
+    const toggleCompleteTaskFromCurrentProject = (id, complete) => {
+        let newSelectedProject = Object.assign({}, selectedProject);
+        let task = newSelectedProject.findTaskByID(id);
+        if (complete)
+            task.complete();
+        else
+            task.uncomplete();
+        setSelectedProject(newSelectedProject);
+    }
+
+    const clearCompletedFromCurrentProject = () => {
+        let newSelectedProject = Object.assign({}, selectedProject);
+        newSelectedProject.clearCompletedTasks();
+        setSelectedProject(newSelectedProject);
+    }
     useEffect(()=>{
         let id = selectedProject.getID();
         let project = projectManager.findProjectByID(id);
@@ -31,7 +47,9 @@ function Main() {
             <NavigationMenu></NavigationMenu>
             <ProjectOverview project={selectedProject} 
             handleAddTask={addTaskToCurrentProject.bind(this)}
-            handleDeleteTask={deleteTaskFromCurrentProject.bind(this)}></ProjectOverview>
+            handleDeleteTask={deleteTaskFromCurrentProject.bind(this)}
+            handleCompleteTask={toggleCompleteTaskFromCurrentProject.bind(this)}
+            handleClearCompleted={clearCompletedFromCurrentProject.bind(this)}></ProjectOverview>
         </main>
     );
 }

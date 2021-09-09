@@ -15,12 +15,16 @@ const taskFactory = (title, description, dueDate, priority) => {
     const uncomplete = ()=>{
         completed = false;
     }
+    const isComplete = ()=>{
+        return completed;
+    }
 
     const getID = ()=>{
         return id;
     }
 
     return {title, 
+        isComplete,
         description, 
         dueDate, 
         priority,

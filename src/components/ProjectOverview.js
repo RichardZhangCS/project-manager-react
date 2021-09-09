@@ -4,7 +4,7 @@ import AddNewTaskOverlay from "./AddNewTaskOverlay";
 import TaskItem from "./TaskItem";
 
 function ProjectOverview(props) {
-    const { project, handleAddTask, handleDeleteTask } = props;
+    const { project, handleAddTask, handleDeleteTask, handleCompleteTask, handleClearCompleted} = props;
     const [ addNewVisible, setAddNewVisible ] = useState(false);
 
     const toggleAddNewVisible = () => {
@@ -19,17 +19,20 @@ function ProjectOverview(props) {
             <div className="task-list">
                 {
                     project.getTasks().map(task=>
-                        <TaskItem task={task} handleDeleteTask={handleDeleteTask.bind(this)}></TaskItem>
+                        <TaskItem task={task} 
+                        handleDeleteTask={handleDeleteTask.bind(this)}
+                        handleCompleteTask={handleCompleteTask.bind(this)}></TaskItem>
                     )
                 }
             </div>
             <div className="preview-button-options">
                 <button onClick={toggleAddNewVisible} 
                 className="task-button add-task-button">Add New Task</button>
-                <button className="task-button clear-selected">Clear Selected</button>
+                <button onClick={handleClearCompleted} className="task-button clear-selected">Clear Selected</button>
             </div>
             <CSSTransition in={addNewVisible} timeout={300} classNames="fadeIn" unmountOnExit>
-                <AddNewTaskOverlay handleAddTask={handleAddTask.bind(this)} handleExit={toggleAddNewVisible.bind(this)}></AddNewTaskOverlay>
+                <AddNewTaskOverlay handleAddTask={handleAddTask.bind(this)} 
+                handleExit={toggleAddNewVisible.bind(this)}></AddNewTaskOverlay>
             </CSSTransition>
         </div>
     );

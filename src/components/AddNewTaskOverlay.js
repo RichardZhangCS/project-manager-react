@@ -46,7 +46,7 @@ function AddNewTaskOverlay(props) {
                         <label htmlFor='task-priority' className={ isActiveList[3] ? "Active" : ""}>Priority</label>
                     </div>
                 </div>
-                <div style={{display: 'flex', justifyContent: 'center'}}>
+                <div style={{display: 'flex', justifyContent: 'space-around'}}>
                     <button className='add-task-option-button'
                     onClick={()=>{
                         let newTask = taskFactory(values[0], values[1], values[2], values[3])
@@ -57,7 +57,6 @@ function AddNewTaskOverlay(props) {
                     onClick={props.handleExit}>Cancel</button>
                 </div>
             </div>
-            
         </div>
     );
 }

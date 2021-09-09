@@ -2,11 +2,16 @@ import React, { useEffect, useState } from 'react';
 import '../master.css';
 
 function TaskItem(props) {
-    const { task, handleDeleteTask } = props;
+    const { task, handleDeleteTask, handleCompleteTask } = props;
+
+    const checkBoxToTaskCompletion = (e) => {
+        let checked = e.target.checked;
+        handleCompleteTask(task.getID(), checked);
+    }
 
     return (
         <div className='task-item'>
-            <input type='checkbox' className='checkbox' />
+            <input type='checkbox' className='checkbox' onChange={checkBoxToTaskCompletion}/>
             <p className='task-item-label'>{task.title}</p>
             <div className='task-item-right-box'>
                 <p className='task-date'>{task.dueDate}</p>
