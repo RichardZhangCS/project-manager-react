@@ -41,15 +41,21 @@ function Main() {
         if (project)
             project.setTasks(selectedProject.getTasks());
     });
+    const changeSelectedProject = (newProject) => {
+        setSelectedProject(newProject);
+    }
+
 
     return (
         <main>
-            <NavigationMenu></NavigationMenu>
+            <NavigationMenu
+            handleChangeProject={changeSelectedProject.bind(this)}></NavigationMenu>
             <ProjectOverview project={selectedProject} 
             handleAddTask={addTaskToCurrentProject.bind(this)}
             handleDeleteTask={deleteTaskFromCurrentProject.bind(this)}
             handleCompleteTask={toggleCompleteTaskFromCurrentProject.bind(this)}
-            handleClearCompleted={clearCompletedFromCurrentProject.bind(this)}></ProjectOverview>
+            handleClearCompleted={clearCompletedFromCurrentProject.bind(this)
+            }></ProjectOverview>
         </main>
     );
 }

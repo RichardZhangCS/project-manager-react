@@ -22,6 +22,9 @@ const projectManager = (()=>{
     const getProjects = () => {
         return projects;
     }
+    const setProjects = (newProjects) => {
+        projects = newProjects;
+    }
 
     const findProjectByID = (id) => {
         return projects.find(task => id === task.id);
@@ -36,7 +39,8 @@ const projectManager = (()=>{
         deleteProjectbyID,
         findProjectByID,
         getProjects,
-        findProjectByName
+        findProjectByName,
+        setProjects
     }
 })();
 export default projectManager;

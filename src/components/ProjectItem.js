@@ -1,10 +1,11 @@
 import React from "react";
 
 function ProjectItem(props) {
-    const {name} = props;
+    const {project, handleChangeProject} = props;
 
     return (
-        <button className="project-button">{name}</button>
+        <button className="project-button"
+        onClick={handleChangeProject.bind(this, project)}>{project.name}</button>
     );
 }
 

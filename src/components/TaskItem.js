@@ -11,7 +11,7 @@ function TaskItem(props) {
 
     return (
         <div className='task-item'>
-            <input type='checkbox' className='checkbox' onChange={checkBoxToTaskCompletion}/>
+            <input type='checkbox' checked={task.isComplete()} className='checkbox' onChange={checkBoxToTaskCompletion}/>
             <p className='task-item-label'>{task.title}</p>
             <div className='task-item-right-box'>
                 <p className='task-date'>{task.dueDate}</p>

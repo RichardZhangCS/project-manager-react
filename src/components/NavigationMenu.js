@@ -3,13 +3,30 @@ import '../master.css';
 import ProjectItem from './ProjectItem';
 import projectManager from '../project-logic/projectmanager';
 import projectFactory from '../project-logic/project';
+import { CSSTransition } from "react-transition-group";
+import AddNewProjectOverlay from './AddNewProjectOverlay';
 
-function NavigationMenu() {
+function NavigationMenu(props) {
+    const { handleChangeProject } = props;
     const [ projects, setProjects ] = useState(projectManager.getProjects());
-    
-    const addNewProject = () => {
-        setProjects(projects.concat(projectFactory('Test2')));
+    const [ addProjectWindowVisible, setAddProjectWindowVisible ] = useState(false);
+
+    const makeAddProjectWindowVisible = () => {
+        setAddProjectWindowVisible(true);
     }
+
+    const addNewProject = (project) => {
+        let newProjects = projects.map(project => Object.assign({}, project));
+        newProjects.push(project);
+        setProjects(newProjects);
+    }
+
+    const toggleAddProjectWindowVisible = () => {
+        setAddProjectWindowVisible(!addProjectWindowVisible);
+    }
+    useEffect(()=>{
+        projectManager.setProjects(projects);
+    });
 
     return (
         <nav>
@@ -21,10 +38,18 @@ function NavigationMenu() {
             <div className="project-menu">
                 {
                     projects.map(project=>
-                        <ProjectItem name={project.name}></ProjectItem>
+                        <ProjectItem 
+                        handleChangeProject={handleChangeProject}
+                        project={project}></ProjectItem>
                     )
                 }
-                <button onClick={addNewProject} className="add-project-button">Add New Project</button>
+                <button onClick={makeAddProjectWindowVisible} className="add-project-button">Add New Project</button>
+                <CSSTransition in={addProjectWindowVisible} timeout={300} classNames="fadeIn" unmountOnExit>
+                    <AddNewProjectOverlay
+                    handleAddNewProject = {addNewProject.bind(this)}
+                    handleExit = {toggleAddProjectWindowVisible.bind(this)}>
+                    </AddNewProjectOverlay>
+                </CSSTransition>
             </div>
         </nav>
     );

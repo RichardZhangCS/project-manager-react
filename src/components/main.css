@@ -111,10 +111,11 @@ input[type=checkbox] {
     display: block;
 }
 
-.add-task-window {
+.add-task-window, .add-project-window {
     width: 700px;
     height: 500px;
     background-color: var(--celadon);
+    border-radius: 5px;
 
 	position: absolute;
 	top:0;
@@ -124,11 +125,15 @@ input[type=checkbox] {
   	
 	margin: auto;
 }
+
+.add-project-window {
+    height: 300px !important;
+}
 input[type='text'], input[type='date'], input[type='number'] {
     display: block;
     margin: 20px;
 }
-.add-task-field {
+.add-task-field, .add-project-field {
     display: flex;
     flex-direction: column;
     min-width: 350px;
@@ -137,7 +142,10 @@ input[type='text'], input[type='date'], input[type='number'] {
 .add-task-field .Active {
     transform: translate(4px, 24px) scale(0.75);
 }
-.add-task-field input {
+.add-project-field .Active {
+    transform: translate(4px, 24px) scale(0.75);
+}
+.add-task-field input, .add-project-field input {
     width: auto;
     height: 56px;
     padding: 14px 16px 0 10px;
@@ -148,7 +156,7 @@ input[type='text'], input[type='date'], input[type='number'] {
     font-family: "Manrope Regular";
     font-size: 16px;
 }
-.add-task-field label {
+.add-task-field label, .add-project-field label {
     font-size: 16px;
     font-family: "Manrope Regular";
     padding: 0 32px;
@@ -161,7 +169,7 @@ input[type='text'], input[type='date'], input[type='number'] {
     z-index: 3;
 }
 
-.add-task-field:focus-within label {
+.add-task-field:focus-within label, .add-project-field:focus-within label {
     transform: translate(4px, 24px) scale(0.75);
 }
 
@@ -171,10 +179,10 @@ input[type='text'], input[type='date'], input[type='number'] {
 .date-field, .half-field {
     width: 50%;
 }
-.add-task-field label.static {
+.add-task-field label.static, .add-project-field label.static {
     transform: translate(4px, 24px) scale(0.75) !important;
 }
-.add-task-option-button {
+.add-task-option-button, .add-project-option-button {
     text-align: center;
     margin: 5px 10px;
     transform: scale(1.25);
