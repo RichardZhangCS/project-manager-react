@@ -45,6 +45,16 @@ function Main() {
         setSelectedProject(newProject);
     }
 
+    const editTaskInCurrentProject = (id, newTask) => {
+        let newSelectedProject = Object.assign({}, selectedProject);
+        let editedTask = newSelectedProject.findTaskByID(id);
+        editedTask.title = newTask.title;
+        editedTask.description = newTask.description;
+        editedTask.dueDate = newTask.dueDate;
+        editedTask.priority = newTask.priority;
+        setSelectedProject(newSelectedProject);
+    }
+
 
     return (
         <main>
@@ -54,6 +64,7 @@ function Main() {
             handleAddTask={addTaskToCurrentProject.bind(this)}
             handleDeleteTask={deleteTaskFromCurrentProject.bind(this)}
             handleCompleteTask={toggleCompleteTaskFromCurrentProject.bind(this)}
+            handleEditTask={editTaskInCurrentProject.bind(this)}
             handleClearCompleted={clearCompletedFromCurrentProject.bind(this)
             }></ProjectOverview>
         </main>

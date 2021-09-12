@@ -4,7 +4,8 @@ import AddNewTaskOverlay from "./AddNewTaskOverlay";
 import TaskItem from "./TaskItem";
 
 function ProjectOverview(props) {
-    const { project, handleAddTask, handleDeleteTask, handleCompleteTask, handleClearCompleted} = props;
+    const { project, handleAddTask, handleDeleteTask, 
+        handleCompleteTask, handleClearCompleted, handleEditTask } = props;
     const [ addNewVisible, setAddNewVisible ] = useState(false);
 
     const toggleAddNewVisible = () => {
@@ -21,7 +22,8 @@ function ProjectOverview(props) {
                     project.getTasks().map(task=>
                         <TaskItem task={task} 
                         handleDeleteTask={handleDeleteTask.bind(this)}
-                        handleCompleteTask={handleCompleteTask.bind(this)}></TaskItem>
+                        handleCompleteTask={handleCompleteTask.bind(this)}
+                        handleEditTask={handleEditTask.bind(this)}></TaskItem>
                     )
                 }
             </div>

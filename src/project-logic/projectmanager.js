@@ -2,9 +2,8 @@ import projectFactory from "./project";
 import taskFactory from "./task";
 
 const projectManager = (()=>{
-    let test = projectFactory("test1");
-    test.addTask(taskFactory("MyProject", "wow", "9-30", 1));
-    let projects = [test];
+    let inbox = projectFactory("Inbox", '~');
+    let projects = [inbox];
 
     const addProject = (project) => {
         projects.push(project);

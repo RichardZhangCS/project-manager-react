@@ -127,7 +127,8 @@ input[type=checkbox] {
 }
 
 .add-project-window {
-    height: 300px !important;
+    height: fit-content !important;
+    padding-bottom: 10px;
 }
 input[type='text'], input[type='date'], input[type='number'] {
     display: block;

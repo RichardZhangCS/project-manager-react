@@ -31,13 +31,15 @@ function NavigationMenu(props) {
     return (
         <nav>
             <div className="main-buttons-container">
-                <button className="main-button">Indox</button>
+                <ProjectItem handleChangeProject={handleChangeProject} 
+                project={projectManager.getProjects()[0]}></ProjectItem>
                 <button className="main-button">Today</button>
             </div>
             <h2>Projects</h2>
             <div className="project-menu">
                 {
                     projects.map(project=>
+                        project.getID() !== '~' &&
                         <ProjectItem 
                         handleChangeProject={handleChangeProject}
                         project={project}></ProjectItem>

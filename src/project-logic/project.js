@@ -1,8 +1,8 @@
 import uniqid from 'uniqid';
 
-const projectFactory = (name) => {
+const projectFactory = (name, uid) => {
     let tasks = [];
-    let id = uniqid();
+    let id = (uid) ? uid : uniqid();
     
     const addTask = (task) => {
         tasks.push(task);
