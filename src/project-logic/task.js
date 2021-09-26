@@ -1,13 +1,13 @@
 import uniqid from 'uniqid';
 
-const taskFactory = (title, description, dueDate, priority) => {
+const taskFactory = (title, description, dueDate, priority, uid) => {
     /* Priority key:
         1 = High
         2 = Medium
         3 = Low
     */
     let completed = false;
-    let id = uniqid();
+    let id = (uid) ? uid : uniqid();
 
     const complete = ()=>{
         completed = true;

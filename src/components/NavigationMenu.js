@@ -7,6 +7,7 @@ import { CSSTransition } from "react-transition-group";
 import AddNewProjectOverlay from './AddNewProjectOverlay';
 
 function NavigationMenu(props) {
+    const pM = projectManager;
     const { handleChangeProject } = props;
     const [ projects, setProjects ] = useState(projectManager.getProjects());
     const [ addProjectWindowVisible, setAddProjectWindowVisible ] = useState(false);
@@ -18,6 +19,7 @@ function NavigationMenu(props) {
     const addNewProject = (project) => {
         let newProjects = projects.map(project => Object.assign({}, project));
         newProjects.push(project);
+        projectManager.addProject(project);
         setProjects(newProjects);
     }
 
@@ -28,12 +30,16 @@ function NavigationMenu(props) {
         projectManager.setProjects(projects);
     });
 
+
     return (
         <nav>
             <div className="main-buttons-container">
-                <ProjectItem handleChangeProject={handleChangeProject} 
+                {
+                projectManager.getProjects()[0] && <ProjectItem handleChangeProject={handleChangeProject} 
                 project={projectManager.getProjects()[0]}></ProjectItem>
+                }
                 <button className="main-button">Today</button>
+                
             </div>
             <h2>Projects</h2>
             <div className="project-menu">

@@ -22,11 +22,7 @@ function Main() {
 
     const toggleCompleteTaskFromCurrentProject = (id, complete) => {
         let newSelectedProject = Object.assign({}, selectedProject);
-        let task = newSelectedProject.findTaskByID(id);
-        if (complete)
-            task.complete();
-        else
-            task.uncomplete();
+        newSelectedProject.toggleCompleteTaskByID(id, complete);
         setSelectedProject(newSelectedProject);
     }
 
@@ -47,11 +43,7 @@ function Main() {
 
     const editTaskInCurrentProject = (id, newTask) => {
         let newSelectedProject = Object.assign({}, selectedProject);
-        let editedTask = newSelectedProject.findTaskByID(id);
-        editedTask.title = newTask.title;
-        editedTask.description = newTask.description;
-        editedTask.dueDate = newTask.dueDate;
-        editedTask.priority = newTask.priority;
+        newSelectedProject.editTaskWithNewTaskInfo(id, newTask);
         setSelectedProject(newSelectedProject);
     }
 

@@ -1,13 +1,19 @@
+import { addNewProjectToFirestore, getInboxProject } from "../backend/firestore";
 import projectFactory from "./project";
 import taskFactory from "./task";
 
 const projectManager = (()=>{
-    let inbox = projectFactory("Inbox", '~');
-    let projects = [inbox];
+    let projects = [];
+    //projects.push(getInboxProject(inbox));
 
     const addProject = (project) => {
         projects.push(project);
+        addNewProjectToFirestore(project);
         return project;
+    }
+
+    const addProjectAtIndex = (index, project) => {
+        projects.splice(index, 0, project);
     }
 
     const deleteProjectByIndex = (index) => {
@@ -34,6 +40,7 @@ const projectManager = (()=>{
 
     return {
         addProject,
+        addProjectAtIndex,
         deleteProjectByIndex,
         deleteProjectbyID,
         findProjectByID,
