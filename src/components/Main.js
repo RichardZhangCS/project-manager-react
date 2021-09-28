@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 import NavigationMenu from './NavigationMenu';
 import './main.css'
 import ProjectOverview from './ProjectOverview';
 import projectManager from '../project-logic/projectmanager';
 
 function Main() {
+    let pM = projectManager;
     const [selectedProject, setSelectedProject] = 
             useState(projectManager.getProjects()[0]);
+    const [_, forceUpdate] = useReducer((x) => x + 1, 0);
     
     const addTaskToCurrentProject = (task) => {
         let newSelectedProject = Object.assign({}, selectedProject);
@@ -40,6 +42,19 @@ function Main() {
     const changeSelectedProject = (newProject) => {
         setSelectedProject(newProject);
     }
+    const changeSelectedProjectAfterDelete = (index, id) => {
+        if (id !== selectedProject.getID()) return;
+        const numOfRemainingProjects = projectManager.getProjects().length;
+        console.log(projectManager.getProjects());
+        if (index == numOfRemainingProjects) {
+            // Last index was removed
+            setSelectedProject(projectManager.getProjects()[index-1]);
+            forceUpdate();
+        } else {
+            setSelectedProject(projectManager.getProjects()[index]);
+            forceUpdate();
+        }
+    }
 
     const editTaskInCurrentProject = (id, newTask) => {
         let newSelectedProject = Object.assign({}, selectedProject);
@@ -51,7 +66,9 @@ function Main() {
     return (
         <main>
             <NavigationMenu
-            handleChangeProject={changeSelectedProject.bind(this)}></NavigationMenu>
+            handleChangeProject={changeSelectedProject.bind(this)}
+            handleChangeProjectAfterDelete={changeSelectedProjectAfterDelete.bind(this)}
+            ></NavigationMenu>
             <ProjectOverview project={selectedProject} 
             handleAddTask={addTaskToCurrentProject.bind(this)}
             handleDeleteTask={deleteTaskFromCurrentProject.bind(this)}

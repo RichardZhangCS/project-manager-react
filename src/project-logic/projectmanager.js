@@ -1,4 +1,4 @@
-import { addNewProjectToFirestore, getInboxProject } from "../backend/firestore";
+import { addNewProjectToFirestore, deleteProjectFromFirestore, getInboxProject } from "../backend/firestore";
 import projectFactory from "./project";
 import taskFactory from "./task";
 
@@ -22,7 +22,11 @@ const projectManager = (()=>{
         return removedProject;
     }
     const deleteProjectbyID = (id) => {
-        return projects.filter(project => id !== project.id);
+        let deletedProject = projects.find(project => id === project.getID())
+        let removedIndex = projects.indexOf(deletedProject);
+        projects = projects.filter(project => id !== project.getID());
+        deleteProjectFromFirestore(deletedProject);
+        return removedIndex;
     }
     const getProjects = () => {
         return projects;

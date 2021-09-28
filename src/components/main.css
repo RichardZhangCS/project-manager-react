@@ -1,192 +1,221 @@
 main {
-    display: flex;
-    height: auto;
-    min-height: calc(100vh - 107px)
+  display: flex;
+  height: auto;
+  min-height: calc(100vh - 107px);
 }
 
 nav {
-    background-color: var(--magic-mint);
-    height:auto;
-    padding: 16px;
+  background-color: var(--magic-mint);
+  height: auto;
+  padding: 16px;
 }
 
 h2 {
-    margin: 16px 16px;
+  margin: 16px 16px;
 }
 
 div.task-preview {
-    padding: 16px;
-    background-color: #effbf7;
-    width:1000px;
-    margin: 0 auto;
+  padding: 16px;
+  background-color: #effbf7;
+  width: 1000px;
+  margin: 0 auto;
 }
 
 .project-title {
-    font-size: 2em;
+  font-size: 2em;
 }
 
-input[type=checkbox] {
-    width: 25px;
-    height: 25px;
-    margin-right: 8px;
+input[type="checkbox"] {
+  width: 25px;
+  height: 25px;
+  margin-right: 8px;
 }
 
 .task-item {
-    display: flex;
-    align-items: center;
-    padding: 0 8px;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
 }
 
 .task-item:hover {
-    background-color: #c4e9dc;
+  background-color: #c4e9dc;
 }
 
 .task-item p {
-    margin: 8px 5px;
+  margin: 8px 5px;
 }
 
 .preview-button-options {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 .task-date {
-    margin-right: 16px !important;
+  margin-right: 16px !important;
 }
 
 .task-item-right-box {
-    margin-left: auto !important;
-    justify-content: flex-end;
-    display:flex;
-    align-items: center;
+  margin-left: auto !important;
+  justify-content: flex-end;
+  display: flex;
+  align-items: center;
 }
 
 .task-item .task-item-right-box i {
-    visibility: hidden;
-    cursor: pointer;
+  visibility: hidden;
+  cursor: pointer;
 }
 
 .task-item:hover .task-item-right-box i {
-    visibility: visible;
-    cursor: pointer;
+  visibility: visible;
+  cursor: pointer;
 }
 
 .overlay {
-    position: fixed; /* Sit on top of the page content */
-    width: 100%; /* Full width (cover the whole page) */
-    height: 100%; /* Full height (cover the whole page) */
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
-    opacity: 0;
-    display: none;
+  position: fixed; /* Sit on top of the page content */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+  opacity: 0;
+  display: none;
 
-    /* Opera */
+  /* Opera */
 }
 .fadeIn-enter {
-    opacity: 0;
-    display: block;
+  opacity: 0;
+  display: block;
 }
 
 .fadeIn-enter-active {
-    opacity: 1;
-    transition: opacity 300ms;
-    display: block;
+  opacity: 1;
+  transition: opacity 300ms;
+  display: block;
 }
 
 .fadeIn-enter-done {
-    opacity: 1;
-    display: block;
+  opacity: 1;
+  display: block;
 }
 .fadeIn-exit {
-    opacity: 1;
-    display: block;
+  opacity: 1;
+  display: block;
 }
 
 .fadeIn-exit-active {
-    opacity: 0;
-    transition: opacity 300ms;
-    display: block;
+  opacity: 0;
+  transition: opacity 300ms;
+  display: block;
 }
 
-.add-task-window, .add-project-window {
-    width: 700px;
-    height: 500px;
-    background-color: var(--celadon);
-    border-radius: 5px;
+.add-task-window,
+.add-project-window {
+  width: 700px;
+  height: 500px;
+  background-color: var(--celadon);
+  border-radius: 5px;
 
-	position: absolute;
-	top:0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-  	
-	margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  margin: auto;
 }
 
 .add-project-window {
-    height: fit-content !important;
-    padding-bottom: 10px;
+  height: fit-content !important;
+  padding-bottom: 10px;
 }
-input[type='text'], input[type='date'], input[type='number'] {
-    display: block;
-    margin: 20px;
+input[type="text"],
+input[type="date"],
+input[type="number"] {
+  display: block;
+  margin: 20px;
 }
-.add-task-field, .add-project-field {
-    display: flex;
-    flex-direction: column;
-    min-width: 350px;
-    position: relative;
+.add-task-field,
+.add-project-field {
+  display: flex;
+  flex-direction: column;
+  min-width: 350px;
+  position: relative;
 }
 .add-task-field .Active {
-    transform: translate(4px, 24px) scale(0.75);
+  transform: translate(4px, 24px) scale(0.75);
 }
 .add-project-field .Active {
-    transform: translate(4px, 24px) scale(0.75);
+  transform: translate(4px, 24px) scale(0.75);
 }
-.add-task-field input, .add-project-field input {
-    width: auto;
-    height: 56px;
-    padding: 14px 16px 0 10px;
-    outline: 0;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background-color: #e7fbf3;
-    font-family: "Manrope Regular";
-    font-size: 16px;
+.add-task-field input,
+.add-project-field input {
+  width: auto;
+  height: 56px;
+  padding: 14px 16px 0 10px;
+  outline: 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #e7fbf3;
+  font-family: "Manrope Regular";
+  font-size: 16px;
 }
-.add-task-field label, .add-project-field label {
-    font-size: 16px;
-    font-family: "Manrope Regular";
-    padding: 0 32px;
-    color: #000;
-    pointer-events: none;
-    position: absolute;
-    transform: translate(0, 50px) scale(1);
-    transform-origin: top left;
-    transition: all 0.2s ease-out;
-    z-index: 3;
+.add-task-field label,
+.add-project-field label {
+  font-size: 16px;
+  font-family: "Manrope Regular";
+  padding: 0 32px;
+  color: #000;
+  pointer-events: none;
+  position: absolute;
+  transform: translate(0, 50px) scale(1);
+  transform-origin: top left;
+  transition: all 0.2s ease-out;
+  z-index: 3;
 }
 
-.add-task-field:focus-within label, .add-project-field:focus-within label {
-    transform: translate(4px, 24px) scale(0.75);
+.add-task-field:focus-within label,
+.add-project-field:focus-within label {
+  transform: translate(4px, 24px) scale(0.75);
 }
 
 .fa-trash-alt {
-    cursor: pointer;
+  cursor: pointer;
 }
-.date-field, .half-field {
-    width: 50%;
+.date-field,
+.half-field {
+  width: 50%;
 }
-.add-task-field label.static, .add-project-field label.static {
-    transform: translate(4px, 24px) scale(0.75) !important;
+.add-task-field label.static,
+.add-project-field label.static {
+  transform: translate(4px, 24px) scale(0.75) !important;
 }
-.add-task-option-button, .add-project-option-button {
-    text-align: center;
-    margin: 5px 10px;
-    transform: scale(1.25);
+.add-task-option-button,
+.add-project-option-button {
+  text-align: center;
+  margin: 5px 10px;
+  transform: scale(1.25);
 }
-
-
+.project-option-container {
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: large;
+}
+.project-option-container:hover {
+  background-color: rgb(150, 204, 182);
+}
+.project-option-container .fa-trash-alt {
+  visibility: hidden;
+  cursor: pointer;
+  margin-left: auto;
+}
+.project-option-container:hover .fa-trash-alt {
+  margin-left: auto;
+  cursor: pointer;
+  visibility: visible;
+}

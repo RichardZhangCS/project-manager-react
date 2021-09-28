@@ -7,6 +7,7 @@ import {
     orderBy,
     limit,
     onSnapshot,
+    deleteDoc,
     getDocs,
     setDoc,
     updateDoc,
@@ -93,4 +94,9 @@ async function matchProjectManagerToFirestore() {
     });
 }
 
-export {addNewProjectToFirestore, updateTasksInProjectInFirestore, matchProjectManagerToFirestore};
+async function deleteProjectFromFirestore(project) {
+    let db = getFirestore();
+    await deleteDoc(doc(db, "projects", project.getID()))
+}
+
+export {addNewProjectToFirestore, updateTasksInProjectInFirestore, matchProjectManagerToFirestore, deleteProjectFromFirestore};

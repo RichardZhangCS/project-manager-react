@@ -8,10 +8,6 @@ function TaskItem(props) {
 
     const [ showEditTaskWindow, setShowEditTaskWindow ] = useState(false);
 
-    const stopBubbling = (e) => {
-        setShowEditTaskWindow(false);
-    }
-
     const checkBoxToTaskCompletion = (e) => {
         let checked = e.target.checked;
         handleCompleteTask(task.getID(), checked);
@@ -19,13 +15,14 @@ function TaskItem(props) {
 
     const toggleShowEditTaskWindow = (e) => {
         if (e && e.target.type === 'checkbox') return;
+        if (e && e.target.className === 'fas fa-trash-alt') return;
         setShowEditTaskWindow(!showEditTaskWindow);
     }
 
     return (
         <div>
             <div className='task-item' onClick={toggleShowEditTaskWindow}>
-                <input onClick={stopBubbling} type='checkbox' checked={task.isComplete()} className='checkbox' onChange={checkBoxToTaskCompletion}/>
+                <input type='checkbox' checked={task.isComplete()} className='checkbox' onChange={checkBoxToTaskCompletion}/>
                 <p className='task-item-label'>{task.title}</p>
                 <div className='task-item-right-box'>
                     <p className='task-date'>{task.dueDate}</p>

@@ -7,8 +7,8 @@ import { CSSTransition } from "react-transition-group";
 import AddNewProjectOverlay from './AddNewProjectOverlay';
 
 function NavigationMenu(props) {
-    const pM = projectManager;
-    const { handleChangeProject } = props;
+    
+    const { handleChangeProject, handleChangeProjectAfterDelete } = props;
     const [ projects, setProjects ] = useState(projectManager.getProjects());
     const [ addProjectWindowVisible, setAddProjectWindowVisible ] = useState(false);
 
@@ -26,6 +26,12 @@ function NavigationMenu(props) {
     const toggleAddProjectWindowVisible = () => {
         setAddProjectWindowVisible(!addProjectWindowVisible);
     }
+
+    const deleteProject = (id) => {
+        let removedIndex = projectManager.deleteProjectbyID(id);
+        setProjects(projectManager.getProjects());
+        handleChangeProjectAfterDelete(removedIndex, id);
+    }
     useEffect(()=>{
         projectManager.setProjects(projects);
     });
@@ -35,10 +41,9 @@ function NavigationMenu(props) {
         <nav>
             <div className="main-buttons-container">
                 {
-                projectManager.getProjects()[0] && <ProjectItem handleChangeProject={handleChangeProject} 
-                project={projectManager.getProjects()[0]}></ProjectItem>
+                projectManager.getProjects()[0] && <ProjectItem handleChangeProject={handleChangeProject.bind(this)} 
+                project={projectManager.getProjects()[0]} handleDeleteProject={deleteProject.bind(this)} isInbox={true}></ProjectItem>
                 }
-                <button className="main-button">Today</button>
                 
             </div>
             <h2>Projects</h2>
@@ -48,7 +53,8 @@ function NavigationMenu(props) {
                         project.getID() !== '~' &&
                         <ProjectItem 
                         handleChangeProject={handleChangeProject}
-                        project={project}></ProjectItem>
+                        project={project}
+                        handleDeleteProject={deleteProject.bind(this)}></ProjectItem>
                     )
                 }
                 <button onClick={makeAddProjectWindowVisible} className="add-project-button">Add New Project</button>
