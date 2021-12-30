@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/project-manager-react/static/css/main.d0a92d2a.chunk.css",
+    "main.js": "/project-manager-react/static/js/main.16a77749.chunk.js",
+    "main.js.map": "/project-manager-react/static/js/main.16a77749.chunk.js.map",
+    "runtime-main.js": "/project-manager-react/static/js/runtime-main.5582263d.js",
+    "runtime-main.js.map": "/project-manager-react/static/js/runtime-main.5582263d.js.map",
+    "static/js/2.43ddc113.chunk.js": "/project-manager-react/static/js/2.43ddc113.chunk.js",
+    "static/js/2.43ddc113.chunk.js.map": "/project-manager-react/static/js/2.43ddc113.chunk.js.map",
+    "index.html": "/project-manager-react/index.html",
+    "static/css/main.d0a92d2a.chunk.css.map": "/project-manager-react/static/css/main.d0a92d2a.chunk.css.map",
+    "static/js/2.43ddc113.chunk.js.LICENSE.txt": "/project-manager-react/static/js/2.43ddc113.chunk.js.LICENSE.txt",
+    "static/media/logo.c81ad55b.png": "/project-manager-react/static/media/logo.c81ad55b.png",
+    "static/media/master.css": "/project-manager-react/static/media/manrope-regular.52260854.woff2"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5582263d.js",
+    "static/js/2.43ddc113.chunk.js",
+    "static/css/main.d0a92d2a.chunk.css",
+    "static/js/main.16a77749.chunk.js"
+  ]
+}
